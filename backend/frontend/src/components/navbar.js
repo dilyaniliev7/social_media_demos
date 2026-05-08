@@ -1,12 +1,12 @@
-import { Text, Flex } from "@chakra-ui/react";
+import { Text, Flex, HStack } from "@chakra-ui/react";
 import { useNavigate } from 'react-router-dom';
-import { IoPersonOutline } from "react-icons/ioS";
+import { IoPersonOutline } from "react-icons/io5";
 const Navbar = () => {
 
     const nav = useNavigate();
 
     const handleNavigate = (route) => {
-        nav{`/${route}`}
+        nav(`/${route}`)
     }
 
     return (
@@ -21,4 +21,4 @@ const Navbar = () => {
     )
 }
 
-export default Navbar
+export default Navbar;
