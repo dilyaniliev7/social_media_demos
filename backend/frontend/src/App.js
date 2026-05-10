@@ -6,13 +6,13 @@ import Layout from './components/layout'
 
 function App() {
   return (
-  <ChakraProvider>
-    <Router>
-        <Routes>
-            <Route element={<Layout><UserProfile/></Layout>} path='/:username'/>
-        </Routes>
-    </Router>
-  </ChakraProvider>
+      <ChakraProvider>
+        <Router>
+            <Routes>
+                <Route element={<Layout><UserProfile/></Layout>} path='/:username'/>
+            </Routes>
+        </Router>
+      </ChakraProvider>
   );
 }
 
