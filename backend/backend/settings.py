@@ -5,9 +5,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-!_q#_d2$r!$ew3zfozbg2(u8h^(x9w46&p_fi$5qgh7d5(-p%o'
 
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost']
 
 AUTH_USER_MODEL = 'base.MyUser'
 
