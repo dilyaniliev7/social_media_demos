@@ -2,20 +2,17 @@ import { VStack, Flex, FormControl, Input, Button, FormLabel, Heading, Text } fr
 import { login } from "../api/endpoints";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from '../contexts/useAuth';
 
 const Login = () => {
 
     const [username, setUsername] = useState('')
     const [password, setPassword] = useState('')
     const navigate = useNavigate();
+    const { auth_login } = useAuth();
 
-    const handleLogin = async () => {
-        const data = await login(username, password)
-        if (data.success) {
-            navigate(`/${username}`)
-        } else {
-            alert('invalid username or password')
-        }
+    const handleLogin = () => {
+        auth_login(username, password)
     }
 
     const handleNav = () => {
