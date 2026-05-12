@@ -23,7 +23,6 @@ const Register = () => {
                 alert('error registering')
             }
 
-
         } else {
             alert('password and confirm password are not identical')
         }
@@ -43,7 +42,7 @@ const Register = () => {
                 </FormControl>
                 <FormControl>
                     <FormLabel htmlFor='username'>Email</FormLabel>
-                    <Input onChange={(e) => setEmail(e.target.value)} bg='white' type='text' />
+                    <Input onChange={(e) => setEmail(e.target.value)} bg='white' type='email' />
                 </FormControl>
                 <FormControl>
                     <FormLabel htmlFor='username'>First Name</FormLabel>
@@ -62,9 +61,10 @@ const Register = () => {
                     <Input onChange={(e) => setConfirmPassword(e.target.value)} bg='white' type='password' />
                 </FormControl>
                 <VStack w='100%' alignItems='start' gap='10px'>
-                    <Button onClick={handleRegister} w='100%' colorScheme='green' fontSize='18px'>Register</Button>
-                    <Text onClick={handleNav} fontSize='14px' color='gray.500'>Already have an account? Login</Text>
+                    <Button onClick={handleRegister} w='100%' colorScheme="green" fontSize='18px'>Register</Button>
+                    <Text onClick={handleNav} fontSize='14px' color='gray.500'>Already have an account? Log in</Text>
                 </VStack>
+
             </VStack>
         </Flex>
     )

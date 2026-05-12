@@ -1,6 +1,6 @@
-import { Text, VStack, Flex, Box, Heading, HStack, Image, Button } from "@chakra-ui/react"
+import { Text, VStack, Flex, Box, Heading, HStack, Image, Button, Spacer } from "@chakra-ui/react"
 import { useState, useEffect } from 'react'
-import { get_user_profile_data } from '../api/endpoints';
+import { get_user_profile_data, toggleFollow } from '../api/endpoints';
 import { SERVER_URL } from '../constants/constants';
 
 const UserProfile = () => {
@@ -32,6 +32,19 @@ const UserDetails = ({username}) => {
     const [profileImage, setProfileImage] = useState('')
     const [followerCount, setFollowerCount] = useState(0)
     const [followingCount, setFollowingCount] = useState(0)
+    const [isOurProfile, setIsOurProfile] = useState(false)
+    const [following, setFollowing] = useState(false)
+
+    const handleToggleFollow = async () => {
+        const data = await toggleFollow(username);
+        if (data.now_following) {
+            setFollowerCount(followerCount+1)
+            setFollowing(true)
+        } else{
+            setFollowerCount(followerCount-1)
+            setFollowing(false)
+        }
+    }
 
 
     useEffect(() => {
@@ -43,6 +56,9 @@ const UserDetails = ({username}) => {
                 setProfileImage(data.profile_image)
                 setFollowerCount(data.follower_count)
                 setFollowingCount(data.following_count)
+
+                setIsOurProfile(data.is_our_profile)
+                setFollowing(data.following)
             } catch {
                 console.log('error')
             } finally {
@@ -71,7 +87,16 @@ const UserDetails = ({username}) => {
                             <Text>{ loading ? '-' : followingCount}</Text>
                         </VStack>
                     </HStack>
-                    <Button w='100%'>Edit Profile</Button>
+                    {
+                        loading ?
+                            <Spacer />
+                        :
+
+                            isOurProfile ?
+                                <Button w='100%'>Edit Profile</Button>
+                            :
+                                <Button colorScheme="blue" w='100%'>{following ? 'Unfollow' : 'Follow'}</Button>
+                    }
                 </VStack>
             </HStack>
             <Text fontSize='18px'>{ loading ? '-' : bio}</Text>
