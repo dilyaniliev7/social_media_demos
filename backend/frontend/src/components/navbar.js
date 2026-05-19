@@ -2,6 +2,7 @@ import { Text, Flex, HStack } from "@chakra-ui/react";
 import { useNavigate } from 'react-router-dom';
 import { IoPersonOutline } from "react-icons/io5";
 import { IoMdAddCircleOutline } from "react-icons/io"
+import { FaHouse } from "react-icons/fa6"
 
 const Navbar = () => {
 
@@ -18,6 +19,7 @@ const Navbar = () => {
                 <HStack gap='20px'>
                     <Text onClick={(route) => handleNavigate('/dilyaniliev')}><IoPersonOutline size='20px'/></Text>
                     <Text onClick={(route) => handleNavigate('create/post')}><IoMdAddCircleOutline size='22px'/></Text>
+                    <Text onClick={(route) => handleNavigate('')}><FaHouse size='20px'/></Text>
                 </HStack>
             </HStack>
         </Flex>
