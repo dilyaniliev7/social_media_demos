@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { IoPersonOutline } from "react-icons/io5";
 import { IoMdAddCircleOutline } from "react-icons/io"
 import { FaHouse } from "react-icons/fa6"
+import { IoSearch } from "react-icons/io5"
 
 const Navbar = () => {
 
@@ -20,6 +21,7 @@ const Navbar = () => {
                     <Text onClick={(route) => handleNavigate('/dilyaniliev')}><IoPersonOutline size='20px'/></Text>
                     <Text onClick={(route) => handleNavigate('create/post')}><IoMdAddCircleOutline size='22px'/></Text>
                     <Text onClick={(route) => handleNavigate('')}><FaHouse size='20px'/></Text>
+                    <Text onClick={(route) => handleNavigate('search')}><IoSearch size='20px'/></Text>
                 </HStack>
             </HStack>
         </Flex>
